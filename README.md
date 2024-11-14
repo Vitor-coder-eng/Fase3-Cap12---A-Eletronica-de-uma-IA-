@@ -36,3 +36,41 @@ Este sistema proporciona um ambiente mais sustentável e eficiente, facilitando 
 ### LDR - Sensor de Luz
   Função: Detecta a intensidade da luz solar no ambiente.
   Aplicação: O sensor LDR monitora o nível de luz ambiente e ajuda o sistema a ajustar o nível de irrigação. Em dias ensolarados, o sistema pode reduzir a quantidade de água, enquanto em dias nublados, pode aumentar a irrigação para compensar a menor quantidade de luz.
+
+# Configuração do Projeto no Wokwi e ESP32 
+
+### Acessar o Wokwi: 
+
+Entre no Wokwi e faça login. 
+
+No painel inicial, clique em “New Project” e escolha o microcontrolador ESP32. 
+
+### Adicionar Sensores: 
+
+No projeto, clique em “Add Part” e adicione os sensores conforme o projeto: 
+
+DHT22 (Sensor de Umidade e Temperatura): Conecte o pino de dados ao GPIO 4. 
+
+HC-SR04 (Sensor Ultrassônico): Conecte os pinos Trigger e Echo ao GPIO 5 e GPIO 18. 
+
+PIR (Sensor de Movimento): Conecte o pino de dados ao GPIO 19. 
+
+LDR (Sensor de Luz): Conecte o LDR ao pino analógico GPIO 34. 
+
+LED (Led vermelho para simular alarme): Conecte o LED ao pino VCC 4 de 3.3V (É importante ressaltar que o LED vermelho que estamos usando nesse circuito tem uma tensão de trabalho de 2V, ou seja, não se esqueça de usar um Resistor para atuar como um freio da corrente elétrica para que não queime o LED). 
+
+### Alimentação e GND: 
+
+Conecte os pinos VCC dos sensores ao pino 3.3V do ESP32. 
+
+Conecte todos os GND dos sensores ao GND do ESP32. 
+
+### Upload do Código: 
+
+No editor do Wokwi, copie e cole o código do projeto. 
+
+### Rodar a Simulação: 
+
+Clique em “Start Simulation” para iniciar o monitoramento dos sensores. 
+
+Acompanhe o Monitor Serial para verificar as leituras dos sensores e o comportamento do sistema de irrigação e segurança. 
