@@ -4,9 +4,9 @@
 
 # Objetivo do Projeto
 
-### O objetivo deste projeto é desenvolver um sistema de monitoramento e controle agrícola que integre diferentes sensores para automatizar a gestão de irrigação, segurança e luminosidade. Esse sistema visa otimizar o uso dos recursos hídricos, aumentar a segurança da propriedade e monitorar o ambiente climático em tempo real, proporcionando melhores condições para o desenvolvimento das culturas e reduzindo custos operacionais.
+O objetivo deste projeto é desenvolver um sistema de monitoramento e controle agrícola que integre diferentes sensores para automatizar a gestão de irrigação, segurança e luminosidade. Esse sistema visa otimizar o uso dos recursos hídricos, aumentar a segurança da propriedade e monitorar o ambiente climático em tempo real, proporcionando melhores condições para o desenvolvimento das culturas e reduzindo custos operacionais.
 
-### Através de sensores de temperatura e umidade (DHT22), ultrassom (HC-SR04), movimento (PIR) e luz (LDR), o sistema é capaz de:
+Através de sensores de temperatura e umidade (DHT22), ultrassom (HC-SR04), movimento (PIR) e luz (LDR), o sistema é capaz de:
 
   Ajustar automaticamente a irrigação com base nas condições de temperatura, umidade e intensidade de luz, evitando o desperdício de água em dias nublados ou aumentando a irrigação em condições de alta luminosidade.
 
@@ -74,3 +74,6 @@ No editor do Wokwi, copie e cole o código do projeto.
 Clique em “Start Simulation” para iniciar o monitoramento dos sensores. 
 
 Acompanhe o Monitor Serial para verificar as leituras dos sensores e o comportamento do sistema de irrigação e segurança. 
+
+# Testes realizados - Monitor serial
+![Print do monitor serial dos testes realizados](https://github.com/Vitor-coder-eng/Fase3-Cap12---A-Eletronica-de-uma-IA-/blob/main/Print%20dos%20dados.png)
