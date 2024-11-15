@@ -1,0 +1,85 @@
+#include <DHT.h>
+#include <Wire.h>
+
+// Definindo os pinos dos sensores
+#define DHTPIN 4     // Sensor de temperatura e umidade no GPIO 15
+#define DHTTYPE DHT22 // Tipo do sensor DHT
+#define TRIG_PIN 5    // Pino TRIG do HC-SR04
+#define ECHO_PIN 18   // Pino ECHO do HC-SR04
+#define PIR_PIN 19     // Sensor PIR no GPIO 4
+#define LDR_PIN 34    // Sensor LDR no GPIO 34
+#define LED_PIN 2     // LED vermelho para simular alarme
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+
+  // Configurando os pinos de entrada e saída
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  pinMode(PIR_PIN, INPUT);
+  pinMode(LDR_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  // 1. Monitoramento Climático (DHT22)
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature();
+  
+  if (isnan(humidity) || isnan(temperature)) {
+    Serial.println("Erro ao ler do sensor DHT!");
+  } else {
+    Serial.print("Umidade: ");
+    Serial.print(humidity);
+    Serial.print(" %\t");
+    Serial.print("Temperatura: ");
+    Serial.print(temperature);
+    Serial.println(" *C");
+    
+    // Ajuste de irrigação baseado na temperatura
+    if (temperature > 30) {
+      Serial.println("Aumentando irrigação devido ao calor intenso.");
+    } else {
+      Serial.println("Temperatura normal, mantendo irrigação padrão.");
+    }
+  }
+
+  // 2. Controle de Irrigação (HC-SR04)
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+
+  long duration = pulseIn(ECHO_PIN, HIGH);
+  float distance = (duration * 0.0343) / 2;
+
+  if (distance <= 20) {
+    Serial.println("Nível de água adequado para irrigação.");
+  } else {
+    Serial.println("Nível baixo de água, reabastecimento necessário.");
+  }
+
+  // 3. Detecção de Presença (PIR)
+  int pirState = digitalRead(PIR_PIN);
+  if (pirState == HIGH) {
+    Serial.println("Movimento detectado, Alerta de intruso!");
+    digitalWrite(LED_PIN, HIGH);  // Ativar LED de alarme
+    delay(1000);
+    digitalWrite(LED_PIN, LOW);   // Desativar LED de alarme
+  }
+
+  // 4. Ajuste de Irrigação com Base na Luminosidade (LDR)
+  int ldrValue = analogRead(LDR_PIN);
+  
+  if (ldrValue < 500) {
+    Serial.println("Dia ensolarado, reduzindo irrigação.");
+  } else {
+    Serial.println("Dia nublado, aumentando irrigação.");
+  }
+
+  delay(2000); // Intervalo entre leituras
+}
