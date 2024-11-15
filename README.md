@@ -27,11 +27,11 @@ Este sistema proporciona um ambiente mais sustentável e eficiente, facilitando 
 
  ### HC-SR04 - Sensor de Ultrassom
   Função: Mede a distância de objetos, no caso, a altura da coluna de água em um reservatório.
-  Aplicação: Posicionado dentro do reservatório de água, ele calcula o nível da água restante. Quando a água atinge um nível baixo (por exemplo, 20 cm do sensor), o sistema é alertado para evitar irrigação, prevenindo o esvaziamento completo do tanque.
+  Aplicação: Posicionado dentro do reservatório de água, ele identifica quando o nível da água está próximo, ou seja, reservatório cheio e quando o nível da água está baixo, assim controlando a irrigação dependendo do nível da água, prevenindo o esvaziamento completo do tanque, além de controlar a bomba d'água.
 
 ### PIR - Sensor de Movimento
   Função: Detecta a presença de pessoas ou animais em movimento.
-  Aplicação: Esse sensor é usado para segurança, monitorando áreas da fazenda onde animais ou pessoas não deveriam estar. Se detecta um movimento, ele pode acionar um alarme visual (como um LED piscante) e sonoro (buzina) para alertar sobre a intrusão.
+  Aplicação: Esse sensor é usado para segurança, monitorando áreas da fazenda onde animais ou pessoas não deveriam estar. Se detecta um movimento, ele pode acionar um alarme visual (como um LED piscante).
 
 ### LDR - Sensor de Luz
   Função: Detecta a intensidade da luz solar no ambiente.
