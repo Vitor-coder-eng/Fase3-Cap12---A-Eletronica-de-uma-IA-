@@ -75,5 +75,25 @@ Clique em “Start Simulation” para iniciar o monitoramento dos sensores.
 
 Acompanhe o Monitor Serial para verificar as leituras dos sensores e o comportamento do sistema de irrigação e segurança. 
 
+#  Instalação e Dependências 
+
+### Biblioteca DHT.h 
+
+Função: Necessária para o funcionamento do sensor DHT22, que mede a temperatura e umidade do ambiente. 
+
+Instalação: No ambiente de simulação Wokwi, a biblioteca DHT é automaticamente carregada quando você define o sensor DHT22. Se você rodar o projeto localmente (como no Arduino IDE), pode instalar a biblioteca DHT seguindo estes passos: 
+
+Abra o Arduino IDE. 
+
+Vá até Sketch > Incluir Biblioteca > Gerenciar Bibliotecas... 
+
+Na barra de busca, digite DHT e selecione a biblioteca "DHT sensor library for Arduino" de autoria de Adafruit. 
+
+Clique em Instalar. 
+
+### Biblioteca Wire.h 
+
+Função: Utilizada para estabelecer comunicação I2C entre dispositivos. No caso de uso do ESP32 no Wokwi, essa biblioteca estará disponível por padrão no ambiente. 
+
 # Testes realizados - Monitor serial
 ![Print do monitor serial dos testes realizados](https://github.com/Vitor-coder-eng/Fase3-Cap12---A-Eletronica-de-uma-IA-/blob/main/Print%20dos%20dados.png)
